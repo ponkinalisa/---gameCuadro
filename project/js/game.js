@@ -246,11 +246,9 @@ function checkCollision(wall) {
                         clearInterval(imgInterval);
                         img1.style.display = 'none';
                     } else {
-                        if (stop_all == false){
-                            img.style.transform = `scale(${frame * 0.01 + 0.5})`;
-                            img.style.opacity = `${1 - frame * 0.01}`;
-                            frame++;
-                        }
+                        img.style.transform = `scale(${frame * 0.01 + 0.5})`;
+                        img.style.opacity = `${1 - frame * 0.01}`;
+                        frame++;
                     }
                     }, 17); // Частота обновления ~60 FPS
             }
@@ -310,6 +308,7 @@ function endGame(win) {
     clearInterval(wallsInterval);
     clearInterval(batteriesInterval);
     collision = false;
+    stop_all = true;
 
     if (win) {
         showResultScreen();
@@ -330,10 +329,8 @@ function showResultScreen() {
         if (frame === 100) {
             clearInterval(resultInterval);
         } else {
-            if (stop_all == false){
-                result.style.right = `${frame * 5 - 500}px`;
-                frame++;
-            }
+            result.style.right = `${frame * 5 - 500}px`;
+            frame++;
         }
     }, 17); // Частота обновления ~60 FPS
 }
@@ -352,10 +349,9 @@ function showGameOverScreen() {
         if (frame === 100) {
             clearInterval(resultInterval);
         } else {
-            if (stop_all == false){
-                result.style.right = `${frame * 5 - 500}px`;
-                frame++;
-            }
+            result.style.right = `${frame * 5 - 500}px`;
+            frame++;
+            
         }
     }, 17); // Частота обновления ~60 FPS
 }
@@ -369,10 +365,9 @@ function restartGame() {
         if (frame === 100) {
             clearInterval(resultInterval);
         } else {
-            if (stop_all == false){
-                result.style.right = `-${frame * 5}px`;
-                frame++;
-            }
+            result.style.right = `-${frame * 5}px`;
+            frame++;
+            
         }
     }, 17); // Частота обновления ~60 FPS
     let frame1 = 0;
@@ -382,16 +377,28 @@ function restartGame() {
             clearInterval(result1Interval);
             result1.style.right = '-500px';
         } else {
-            if (stop_all == false){
-                result1.style.right = `-${frame1 * 5}px`;
-                frame1++;
-            }
+            result1.style.right = `-${frame1 * 5}px`;
+            frame1++;
+            
         }
     }, 17); // Частота обновления ~60 FPS
     // Глобальные переменные
     timeElapsed = 0;
     powerLevel = 50;
     stop_all = false;
+    //удаление прочих элементов
+    var walls = document.getElementsByClassName('wall');
+    console.log(walls.length);
+    while (walls.length != 0){
+        console.log(walls[0]);
+        walls[0].remove();
+        walls = document.getElementsByClassName('wall');
+    }
+    var batteries = document.getElementsByClassName('battery');
+    while (batteries.length != 0){
+        batteries[0].remove();
+        batteries = document.getElementsByClassName('battery');
+    }
     startGame();
 
     }
