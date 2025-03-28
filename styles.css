@@ -1,0 +1,113 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #333;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+#welcome-screen,
+#result-screen,
+#gameover-screen {
+    text-align: center;
+    width: 80%;
+    max-width: 600px;
+    margin-top: 50px;
+}
+
+h1 {
+    font-size: 36px;
+    margin-bottom: 20px;
+}
+
+p {
+    margin-bottom: 10px;
+}
+
+input[type="text"] {
+    padding: 12px;
+    font-size: 16px;
+    border-radius: 6px;
+    outline: none;
+    border: 2px solid #ccc;
+    transition: all 0.3s ease-in-out;
+}
+
+input[type="text"]:focus {
+    border-color: #007bff;
+}
+
+button {
+    cursor: pointer;
+    padding: 12px 24px;
+    font-size: 18px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    transition: all 0.3s ease-in-out;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+#game-container {
+    position: relative;
+    width: 800px;
+    height: 500px;
+    overflow: hidden;
+    background-image: url('background.jpg'); /* Измените путь к фону */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#timer,
+#power,
+#name {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    font-size: 24px;
+    color: white;
+}
+
+#power {
+    right: 15px;
+    left: auto;
+}
+
+#player {
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    background-color: red;
+    border-radius: 30px;
+    z-index: 2;
+}
+
+.wall {
+    position: absolute;
+    width: 40px;
+    height: 200px;
+    background-color: gray;
+    z-index: 1;
+}
+
+.battery {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    background-color: yellow;
+    border-radius: 15px;
+    z-index: 1;
+}
