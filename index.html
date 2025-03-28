@@ -4,26 +4,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Исследователь</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="project/css/styles.css">
 </head>
 <body>
     <div id="welcome-screen">
         <h1>Добро пожаловать в Исследователь!</h1>
         <p>Введите ваше имя:</p>
         <input type="text" id="player-name" placeholder="Ваше имя">
-        <button onclick="startGame()">Начать игру</button>
+        <button onclick="startGame()" id="btn-start">Начать игру</button>
     </div>
 
     <div id="game-container">
         <span id="name"></span>
         <span id="timer"></span>
-        <span id="power">Заряд: 100%</span>
+        <div id="power">Заряд: 50%</div>
         <div id="player"></div>
     </div>
     
     <!-- Экран результата -->
     <div id="result-screen" style="display: none;">
-        <h1>Поздравления, {{ playerName }}!</h1>
+        <h1>Поздравления, <span id="result-name">!</h1>
         <p>Вы пролетели на протяжении <span id="result-time"></span></p>
         <button id="restart-button">Начать заново</button>
     </div>
@@ -36,6 +36,6 @@
     </div>
     
     <!-- Скрытие стартового экрана -->
-    <script src="game.js"></script>
+    <script src="project/js/game.js"></script>
 </body>
 </html>
